@@ -39,8 +39,11 @@ public class VentanaEleccion extends JFrame {
 
 
 
-
-
+        ImageIcon imagen = new ImageIcon("NoCreo.jpg");
+        JLabel fondo = new JLabel(imagen);
+        fondo.setLayout(null);
+        fondo.setBounds(-40,0,getWidth(),getHeight());
+        panel3.add(fondo);
 
         setVisible(true);
     }
