@@ -34,6 +34,9 @@ public class VentanaInicio extends JFrame {
         txt3.setBounds(380,250, 500, 150);
         panel2.add(txt3);
 
+
+
+
         ImageIcon imagen = new ImageIcon("Fondo1.jpg");
         JLabel fondo = new JLabel(imagen);
         fondo.setLayout(null);
