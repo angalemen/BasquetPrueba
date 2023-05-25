@@ -68,7 +68,7 @@ public class VentanaEleccion extends JFrame {
         bot1.setFocusPainted(false);
         bot1.setBorderPainted(false);
         bot1.setContentAreaFilled(false);
-        bot1.setBounds(280, 200, 200, 100);
+        bot1.setBounds(320, 430, 200, 100);
         bot1.setVisible(true);
         panel3.add(bot1);
 
