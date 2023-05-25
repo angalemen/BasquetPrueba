@@ -16,6 +16,10 @@ public class VentanaInicio extends JFrame {
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
+        ////////Logo
+        setIconImage(new ImageIcon("Basketball-PNG-Picture.png").getImage());
+        ////////
+
 
         JPanel panel2 = new JPanel();
         panel2.setLayout(null);
@@ -27,7 +31,7 @@ public class VentanaInicio extends JFrame {
         txt3.setForeground(Color.ORANGE);
         txt3.setFont(fuente2);
         txt3.setLayout(null);
-        txt3.setBounds(20,150, 500, 150);
+        txt3.setBounds(380,250, 500, 150);
         panel2.add(txt3);
 
         ImageIcon imagen = new ImageIcon("Fondo1.jpg");

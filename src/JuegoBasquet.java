@@ -1,6 +1,8 @@
 import javax.swing.*;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Scanner;
@@ -20,6 +22,11 @@ public class JuegoBasquet extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 
+        ////////Logo
+        setIconImage(new ImageIcon("Basketball-PNG-Picture.png").getImage());
+        ////////
+
+
         JPanel panel = new JPanel();
         panel.setLayout(null);
         setContentPane(panel);
@@ -32,7 +39,7 @@ public class JuegoBasquet extends JFrame {
         bot1.setFocusPainted(false);
         bot1.setBorderPainted(false);
         bot1.setContentAreaFilled(false);
-        bot1.setBounds(260,200,350,200);
+        bot1.setBounds(280,200,350,200);
         bot1.setVisible(true);
         panel.add(bot1);
 
@@ -66,8 +73,22 @@ public class JuegoBasquet extends JFrame {
 
     setVisible(true);
 
+        bot1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
 
-}
+
+
+                if (bot1.isSelected()) {
+                }
+
+                new VentanaEleccion();
+                dispose();
+
+
+            }
+        });
+    }
 
 
 
