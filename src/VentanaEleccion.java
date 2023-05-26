@@ -4,10 +4,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.TimerTask;
 
 public class VentanaEleccion extends JFrame {
 
     Font fuente2 = new Font("Arial", Font.BOLD, 35);
+
+    static String text = null;
+    static String text2 = null;
 
     public VentanaEleccion() {
 
@@ -83,7 +87,7 @@ public class VentanaEleccion extends JFrame {
 
 
         /////////////////
-        JRadioButton botn1 = new JRadioButton("Campo STREET");
+        JRadioButton botn1 = new JRadioButton("Campo PABELLÓN");
         botn1.setLayout(null);
         botn1.setFocusPainted(false);
         botn1.setBorderPainted(false);
@@ -102,6 +106,7 @@ public class VentanaEleccion extends JFrame {
         botn2.setVisible(true);
         panel3.add(botn2);
 
+        
         ButtonGroup btnGroup1 = new ButtonGroup();
         btnGroup1.add(botn1);
         btnGroup1.add(botn2);
@@ -158,12 +163,34 @@ public class VentanaEleccion extends JFrame {
             public void actionPerformed(ActionEvent actionEvent) {
 
                 if (botn1.isSelected()) {
-                    //new c
+
                 }
+                if (botn4.isSelected()){
+                    text = "ConBalon375.png";
+                }
+                if (botn3.isSelected()){
+                   text = "JugadorEspanol.png";
+                }
+                if (botn1.isSelected()){
+                    text2 = "PabellonEjemplo.jpg";
+                }
+                if (botn2.isSelected()){
+                    text2 = "PlayikaFondo.png";
+                }
+                new Juego();
+                dispose();
+
 
             }
         });
-
-
     }
+
+    static ImageIcon setPlayer(){
+        return new ImageIcon(text);
+    }
+
+    static ImageIcon setMap(){
+        return new ImageIcon(text2);
+    }
+
 }
