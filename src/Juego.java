@@ -33,7 +33,17 @@ public class Juego extends JFrame {
         setContentPane(panel);
 
 
+        ImageIcon imagen = new ImageIcon("Personajee(1).gif");
+        JLabel fondo = new JLabel(imagen);
+        fondo.setLayout(null);
+        fondo.setBounds(150,250,300,300);
+        panel.add(fondo);
 
+        ImageIcon imagen2 = new ImageIcon("CanastaPrueba.png");
+        JLabel fondo2 = new JLabel(imagen2);
+        fondo2.setLayout(null);
+        fondo2.setBounds(400,250,300,300);
+        panel.add(fondo2);
 
         setVisible(true);
     }

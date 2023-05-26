@@ -102,6 +102,7 @@ public class VentanaEleccion extends JFrame {
         botn2.setVisible(true);
         panel3.add(botn2);
 
+        
         ButtonGroup btnGroup1 = new ButtonGroup();
         btnGroup1.add(botn1);
         btnGroup1.add(botn2);
@@ -158,8 +159,11 @@ public class VentanaEleccion extends JFrame {
             public void actionPerformed(ActionEvent actionEvent) {
 
                 if (botn1.isSelected()) {
-                    //new c
+
                 }
+                new Juego();
+                dispose();
+
 
             }
         });
