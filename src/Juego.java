@@ -7,6 +7,11 @@ import java.util.Calendar;
 
 public class Juego extends JFrame {
 
+     Calendar ahora1;
+    Calendar ahora2;
+
+    long segundos;
+
     Font fuente2 = new Font("Arial", Font.BOLD, 35);
 
     public Juego() {
@@ -32,28 +37,41 @@ public class Juego extends JFrame {
         panel.setVisible(true);
         setContentPane(panel);
 
-        ImageIcon imagen2 = new ImageIcon("CanastaPuntosRed.png");
-        JLabel fondo2 = new JLabel(imagen2);
+        ImageIcon canasta = new ImageIcon("CanastaPuntosRed.png");
+        JLabel fondo2 = new JLabel(canasta);
         fondo2.setLayout(null);
-        fondo2.setBounds(550,160,500,500);
+        fondo2.setBounds(525,60,500,500);
         panel.add(fondo2);
 
         JLabel JugadorEspanol = new JLabel(VentanaEleccion.setPlayer());
         JugadorEspanol.setLayout(null);
-        JugadorEspanol.setBounds(100,310,300,300);
+        JugadorEspanol.setBounds(100,250,300,300);
         panel.add(JugadorEspanol);
 
         JLabel JugadorAfricano = new JLabel(VentanaEleccion.setPlayer());
         JugadorAfricano.setLayout(null);
-        JugadorAfricano.setBounds(100,310,300,300);
+        JugadorAfricano.setBounds(100,250,300,300);
         panel.add(JugadorAfricano);
 
+        JProgressBar progressbar = new JProgressBar(0, 100);
+        progressbar.setOrientation(SwingConstants.HORIZONTAL);
+        progressbar.setBounds(500,500,100,50);
+        progressbar.setStringPainted(true);
+        progressbar.setBackground(Color.GREEN);
+        progressbar.setForeground(Color.white);
+        progressbar.setVisible(true);
 
 
-        JLabel CampoPabellon = new JLabel(VentanaEleccion.setMap());
-        CampoPabellon.setLayout(null);
-        CampoPabellon.setBounds(0,0,900,600);
-        panel.add(CampoPabellon);
+
+
+
+
+
+        panel.add(progressbar);
+        JLabel CampoStreet = new JLabel(VentanaEleccion.setMap());
+        CampoStreet.setLayout(null);
+        CampoStreet.setBounds(0,0,900,600);
+        panel.add(CampoStreet);
 
 
         JLabel CampoPlayika = new JLabel(VentanaEleccion.setMap());
@@ -62,9 +80,11 @@ public class Juego extends JFrame {
         panel.add(CampoPlayika);
 
 
+
         addKeyListener(new KeyListener() {
 
             long t1, t2,dif;
+            int counter= 100;
 
             Instant startTime;
 
@@ -72,26 +92,31 @@ public class Juego extends JFrame {
 
             @Override
             public void keyTyped(KeyEvent e) {
-
-                if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
-                    Calendar ahora1 = Calendar.getInstance();
-                    t1 = ahora1.getTimeInMillis();
-                }
+                progressbar.setVisible(true);
+                progressbar.setValue(100);
 
 
 
             }
 
             @Override
-            public void keyPressed(KeyEvent keyEvent) {
+            public void keyPressed(KeyEvent e) {
 
-                Calendar ahora2 = Calendar.getInstance();
+                if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+
+                  
+                    progressbar.setValue(counter);
+                    ahora1 = Calendar.getInstance();
+                    t1 = ahora1.getTimeInMillis();
+
+                }
+
+                ahora2 = Calendar.getInstance();
                 t2 = ahora2.getTimeInMillis();
 
                 dif = t2 - t1  ;
-                long segundos = (dif / 1000) % 11;
+                segundos = (dif / 1000) % 11;
                 System.out.println(segundos);
-
 
             }
 
@@ -99,10 +124,7 @@ public class Juego extends JFrame {
             public void keyReleased(KeyEvent e) {
 
 
-
-
-                    //System.out.println(Diferencia);
-
+                progressbar.setVisible(true);
 
             }
         });

@@ -2,9 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.util.TimerTask;
 
 public class VentanaEleccion extends JFrame {
 
@@ -172,10 +169,10 @@ public class VentanaEleccion extends JFrame {
                    text = "JugadorEspanol.png";
                 }
                 if (botn1.isSelected()){
-                    text2 = "PabellonEjemplo.jpg";
+                    text2 = "Strett(1).png";
                 }
                 if (botn2.isSelected()){
-                    text2 = "PlayikaFondo.png";
+                    text2 = "Beach(1).png";
                 }
                 new Juego();
                 dispose();
