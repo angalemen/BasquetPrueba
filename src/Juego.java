@@ -85,18 +85,19 @@ public class Juego extends JFrame {
             @Override
             public void keyPressed(KeyEvent keyEvent) {
 
+                Calendar ahora2 = Calendar.getInstance();
+                t2 = ahora2.getTimeInMillis();
+                dif  = 0;
+                dif = t2 - t1  ;
+                long segundos = (dif / 1000) % 20;
+                System.out.println(segundos);
+                ahora2.clear();
 
             }
 
             @Override
             public void keyReleased(KeyEvent e) {
 
-                Calendar ahora2 = Calendar.getInstance();
-                t2 = ahora2.getTimeInMillis();
-                dif  = 0;
-                dif = t2 - t1  ;
-                long segundos = (dif / 1000) % 100;
-                System.out.println(segundos);
 
 
 
