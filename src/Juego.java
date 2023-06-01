@@ -38,7 +38,14 @@ public class Juego extends JFrame {
         panel.setLayout(null);
         panel.setVisible(true);
         setContentPane(panel);
+        ////Marcador Puntos
 
+        String Puntos = String.valueOf(puntos);
+        JLabel fondo9 = new JLabel(Puntos);
+        fondo9.setBounds(400, 10, 250, 130);
+        panel.add(fondo9);
+
+        ////
         ImageIcon Canasta = new ImageIcon("+2.png");
         JLabel fondo4 = new JLabel(Canasta);
         fondo4.setLayout(null);

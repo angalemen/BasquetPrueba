@@ -46,6 +46,7 @@ public class VentanaEleccion extends JFrame {
         fondo3.setBounds(150, 150, 250, 130);
         panel3.add(fondo3);
 
+
         JTextField nombreyapellidos = new JTextField();
         nombreyapellidos.setBounds(450, 190, 300, 40);
         panel3.add(nombreyapellidos);
