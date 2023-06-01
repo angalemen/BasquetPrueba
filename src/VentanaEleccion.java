@@ -187,7 +187,11 @@ public class VentanaEleccion extends JFrame {
     }
 
     static ImageIcon setMap(){
+
         return new ImageIcon(text2);
     }
+    static ImageIcon setCambio1(){
 
+        return new ImageIcon("SinBalon375.png");
+    }
 }
