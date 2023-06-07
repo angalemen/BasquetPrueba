@@ -14,7 +14,7 @@ public class Juego extends JFrame {
     int counter = 0;
     int puntos = 0;
 
-    Font fuente2 = new Font("Arial", Font.BOLD, 35);
+
 
     public Juego() {
 
@@ -40,10 +40,18 @@ public class Juego extends JFrame {
         setContentPane(panel);
         ////Marcador Puntos
 
-        String Puntos = String.valueOf(puntos);
-        JLabel fondo9 = new JLabel(Puntos);
-        fondo9.setBounds(400, 10, 250, 130);
+        Font fuente2 = new Font("Arial", Font.BOLD, 50);
+        JLabel fondo9 = new JLabel(String.valueOf(puntos));
+        fondo9.setBounds(405 , 0, 250, 130);
+        fondo9.setFont(fuente2);
         panel.add(fondo9);
+
+        ImageIcon canastafondo = new ImageIcon("MarcadorSin(2).png");
+        JLabel fondo12 = new JLabel(canastafondo);
+        fondo12.setLayout(null);
+        fondo12.setBounds(300, 10, 250, 130);
+        fondo12.setVisible(true);
+        panel.add(fondo12);
 
         ////
         ImageIcon Canasta = new ImageIcon("+2.png");
@@ -147,38 +155,48 @@ public class Juego extends JFrame {
             @Override
             public void keyReleased(KeyEvent keyEvent) {
 
-                    if (counter == 16){
+                do {
+
+                    fondo9.setText(String.valueOf(puntos));
+
+                    if (counter == 16) {
                         puntos += 2;
+                        fondo9.setText(String.valueOf(puntos));
                         //JugadorAfricano.setVisible(false);
                         //fondo5.setVisible(true);
                         fondo4.setVisible(true);
                     } else if (counter == 28) {
                         puntos += 2;
+                        fondo9.setText(String.valueOf(puntos));
                         //JugadorAfricano.setVisible(false);
                         //fondo5.setVisible(true);
                         fondo4.setVisible(true);
                     } else if (counter == 44) {
                         puntos += 2;
+                        fondo9.setText(String.valueOf(puntos));
                         //JugadorAfricano.setVisible(false);
                         //fondo5.setVisible(true);
                         fondo4.setVisible(true);
                     } else if (counter == 60) {
                         puntos += 2;
+                        fondo9.setText(String.valueOf(puntos));
                         //JugadorAfricano.setVisible(false);
                         //fondo5.setVisible(true);
                         fondo4.setVisible(true);
-                    }else if (counter == 80) {
+                    } else if (counter == 80) {
                         puntos += 3;
+                        fondo9.setText(String.valueOf(puntos));
                         //JugadorAfricano.setVisible(false);
                         //fondo5.setVisible(true);
                         fondo6.setVisible(true);
-                    }else if (counter == 98) {
+                    } else if (counter == 96) {
                         puntos += 3;
+                        fondo9.setText(String.valueOf(puntos));
                         //JugadorAfricano.setVisible(false);
                         //fondo5.setVisible(true);
                         fondo6.setVisible(true);
                     }
-
+                }while (puntos >= 20);
 
                 counter = 0;
 
