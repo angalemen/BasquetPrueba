@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class VentanaEleccion extends JFrame {
 
@@ -46,10 +48,16 @@ public class VentanaEleccion extends JFrame {
         fondo3.setBounds(150, 150, 250, 130);
         panel3.add(fondo3);
 
+        ////////Nombre
+
 
         JTextField nombreyapellidos = new JTextField();
         nombreyapellidos.setBounds(450, 190, 300, 40);
         panel3.add(nombreyapellidos);
+
+
+
+
 
         ImageIcon imagen4 = new ImageIcon("coollogo_com-16271739(7).png");
         JLabel fondo4 = new JLabel(imagen4);
@@ -175,6 +183,17 @@ public class VentanaEleccion extends JFrame {
                 if (botn2.isSelected()){
                     text2 = "Beach(1).png";
                 }
+
+
+                try {
+                    FileWriter escritor = new FileWriter("Nombre.txt",true);
+                    escritor.write(nombreyapellidos.getText());
+                    escritor.close();
+                    System.out.println("Archivo guardado correctamente.");
+                } catch (IOException e) {
+                    System.out.println("Error al guardar el archivo: " + e.getMessage());
+                }
+
                 new Juego();
                 dispose();
 
