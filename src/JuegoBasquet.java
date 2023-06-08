@@ -19,7 +19,7 @@ public class JuegoBasquet extends JFrame {
         setTitle("Tiros Libres Pro 3");
         setLocationRelativeTo(null);
         setResizable(false);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 
         ////////Logo
@@ -51,6 +51,23 @@ public class JuegoBasquet extends JFrame {
         fondo2.setBounds(200,5,500,101);
         panel.add(fondo2);
 
+        ////////REGLAS
+
+
+
+
+        ImageIcon LibroReglas = new ImageIcon("LibroREGLAS(1).png");
+
+        JButton bot2 = new JButton(LibroReglas);
+        bot2.setFocusPainted(false);
+        bot2.setBorderPainted(false);
+        bot2.setContentAreaFilled(false);
+        bot2.setBounds(750,5,100,100);
+        bot2.setVisible(true);
+        panel.add(bot2);
+
+        ///////
+
 
 
 
@@ -72,6 +89,23 @@ public class JuegoBasquet extends JFrame {
         panel.add(fondo);
 
     setVisible(true);
+
+        bot2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+
+
+
+                if (bot2.isSelected()) {
+                }
+
+                new Reglas();
+                dispose();
+
+
+            }
+        });
+
 
         bot1.addActionListener(new ActionListener() {
             @Override

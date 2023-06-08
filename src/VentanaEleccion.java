@@ -4,10 +4,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class VentanaEleccion extends JFrame {
 
     Font fuente2 = new Font("Arial", Font.BOLD, 35);
+
+    Scanner teclat = new Scanner(System.in);
 
     static String text = null;
     static String text2 = null;
@@ -93,7 +96,7 @@ public class VentanaEleccion extends JFrame {
 
 
         /////////////////
-        JRadioButton botn1 = new JRadioButton("Campo PABELLÓN");
+        JRadioButton botn1 = new JRadioButton("Campo STREET");
         botn1.setLayout(null);
         botn1.setFocusPainted(false);
         botn1.setBorderPainted(false);
@@ -188,11 +191,13 @@ public class VentanaEleccion extends JFrame {
                 try {
                     FileWriter escritor = new FileWriter("Nombre.txt",true);
                     escritor.write(nombreyapellidos.getText());
+                    escritor.write("\n");
                     escritor.close();
                     System.out.println("Archivo guardado correctamente.");
                 } catch (IOException e) {
                     System.out.println("Error al guardar el archivo: " + e.getMessage());
                 }
+
 
                 new Juego();
                 dispose();
