@@ -8,10 +8,6 @@ import java.util.Scanner;
 
 public class VentanaEleccion extends JFrame {
 
-    Font fuente2 = new Font("Arial", Font.BOLD, 35);
-
-    Scanner teclat = new Scanner(System.in);
-
     static String text = null;
     static String text2 = null;
 
@@ -27,11 +23,6 @@ public class VentanaEleccion extends JFrame {
         ////////Logo
         setIconImage(new ImageIcon("Basketball-PNG-Picture.png").getImage());
         ////////
-
-        /////Fuente
-        Font fuente1 = new Font("Agency FB", Font.BOLD, 70);
-        /////
-
 
         JPanel panel3 = new JPanel();
         panel3.setLayout(null);
@@ -57,9 +48,6 @@ public class VentanaEleccion extends JFrame {
         JTextField nombreyapellidos = new JTextField();
         nombreyapellidos.setBounds(450, 190, 300, 40);
         panel3.add(nombreyapellidos);
-
-
-
 
 
         ImageIcon imagen4 = new ImageIcon("coollogo_com-16271739(7).png");
@@ -115,7 +103,7 @@ public class VentanaEleccion extends JFrame {
         botn2.setVisible(true);
         panel3.add(botn2);
 
-        
+
         ButtonGroup btnGroup1 = new ButtonGroup();
         btnGroup1.add(botn1);
         btnGroup1.add(botn2);
@@ -171,25 +159,31 @@ public class VentanaEleccion extends JFrame {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
 
-                if (botn1.isSelected()) {
+                if (!botn1.isSelected() && !botn2.isSelected() && !botn3.isSelected() && !botn4.isSelected()) {
+                    JOptionPane.showMessageDialog(null, "Selecciona algún personaje");
+                    new VentanaEleccion();
+                }else {
+                    if (botn1.isSelected()) {
 
+                    }
+                    if (botn4.isSelected()) {
+                        text = "ConBalon375.png";
+                    }
+                    if (botn3.isSelected()) {
+                        text = "JugadorEspanol.png";
+                    }
+                    if (botn1.isSelected()) {
+                        text2 = "Strett(1).png";
+                    }
+                    if (botn2.isSelected()) {
+                        text2 = "Beach(1).png";
+                    }
+                    new Juego();
+                    dispose();
                 }
-                if (botn4.isSelected()){
-                    text = "ConBalon375.png";
-                }
-                if (botn3.isSelected()){
-                   text = "JugadorEspanol.png";
-                }
-                if (botn1.isSelected()){
-                    text2 = "Strett(1).png";
-                }
-                if (botn2.isSelected()){
-                    text2 = "Beach(1).png";
-                }
-
 
                 try {
-                    FileWriter escritor = new FileWriter("Nombre.txt",true);
+                    FileWriter escritor = new FileWriter("Nombre.txt", true);
                     escritor.write(nombreyapellidos.getText());
                     escritor.write("\n");
                     escritor.close();
@@ -199,24 +193,19 @@ public class VentanaEleccion extends JFrame {
                 }
 
 
-                new Juego();
-                dispose();
+
 
 
             }
         });
     }
 
-    static ImageIcon setPlayer(){
+    static ImageIcon setPlayer() {
         return new ImageIcon(text);
     }
 
-    static ImageIcon setMap(){
+    static ImageIcon setMap() {
 
         return new ImageIcon(text2);
-    }
-    static ImageIcon setCambio1(){
-
-        return new ImageIcon("SinBalon375.png");
     }
 }

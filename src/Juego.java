@@ -10,20 +10,14 @@ import java.util.Calendar;
 
 public class Juego extends JFrame {
 
-    Calendar ahora1;
-    Calendar ahora2;
 
-    long segundos;
-
-    int counter = 0;
     int puntos = 0;
 
 
     public Juego() {
 
-
         setSize(900, 600);
-        setTitle("Tiros Libres Pro 3");
+        setTitle("Tiros Libres Pro 3");                             //dimensiones y titulo de la ventana
         setLocationRelativeTo(null);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -32,23 +26,18 @@ public class Juego extends JFrame {
         setIconImage(new ImageIcon("Basketball-PNG-Picture.png").getImage());
         ////////
 
-        /////Fuente
-        Font fuente1 = new Font("Agency FB", Font.BOLD, 70);
-        /////
-
-
         JPanel panel = new JPanel();
         panel.setLayout(null);
         panel.setVisible(true);
         setContentPane(panel);
-        ////Marcador Puntos
+        ////////////////////////////////777Marcador Puntos
 
         Font fuente2 = new Font("Arial", Font.BOLD, 50);
         JLabel fondo9 = new JLabel(String.valueOf(puntos));
         fondo9.setBounds(400, -20, 250, 130);
         fondo9.setFont(fuente2);
         panel.add(fondo9);
-
+                                                                                    //Añade una imagen de un marcador y el int de puntos lo pasa a string para meterlo en un label y poder mostrarlo.
         ImageIcon canastafondo = new ImageIcon("MarcadorSin(2).png");
         JLabel fondo12 = new JLabel(canastafondo);
         fondo12.setLayout(null);
@@ -56,7 +45,10 @@ public class Juego extends JFrame {
         fondo12.setVisible(true);
         panel.add(fondo12);
 
-        ////
+        ///////////////////////////////////////////////
+
+
+        ///////Imagenes Puntos Canasta
         ImageIcon Canasta = new ImageIcon("+2.png");
         JLabel fondo4 = new JLabel(Canasta);
         fondo4.setLayout(null);
@@ -71,27 +63,47 @@ public class Juego extends JFrame {
         fondo6.setVisible(false);
         panel.add(fondo6);
 
-
+        //////// Imagen Canasta
         ImageIcon canasta = new ImageIcon("CanastaPuntosRed.png");
         JLabel fondo2 = new JLabel(canasta);
         fondo2.setLayout(null);
         fondo2.setBounds(525, 60, 500, 500);
         panel.add(fondo2);
+        ///////////////////////////////////////////////////////7
 
-        ImageIcon TiroAfricano = new ImageIcon("SinBalon375.png");
-        JLabel fondo5 = new JLabel(TiroAfricano);
-        fondo5.setLayout(null);
-        fondo5.setBounds(100, 250, 300, 300);
-        fondo5.setVisible(false);
-        panel.add(fondo5);
 
+
+
+
+
+        ////Imagen final de has ganado si llegas a 20 puntos
+        ImageIcon HasGanado = new ImageIcon("has ganado2.png");
+        JLabel fondo8 = new JLabel(HasGanado);
+        fondo8.setLayout(null);
+        fondo8.setBounds(70, -50, 800, 800);
+        fondo8.setVisible(false);
+        panel.add(fondo8);
+        ///////////////////////////////////
+
+        //////Imagen de has perdido si llegas a el limite de tiros permitidos.
         ImageIcon Loser = new ImageIcon("HasPerdido.png");
         JLabel fondo7 = new JLabel(Loser);
         fondo7.setLayout(null);
-        fondo7.setBounds(250, 250, 300, 300);
+        fondo7.setBounds(70  , 5, 800, 800);
         fondo7.setVisible(false);
         panel.add(fondo7);
+        ////////////////////////////////////////
 
+        ////////Confeti final que sale si ganas (es un gif igualado a un label para poder mostrarlo igual que he hecho anjteriormente con las imagenes)
+        ImageIcon Confeti = new ImageIcon("confeti.gif");
+        JLabel fondo10 = new JLabel(Confeti);
+        fondo10.setLayout(null);
+        fondo10.setBounds(0  , 0, 900, 600);
+        fondo10.setVisible(false);
+        panel.add(fondo10);
+        ////////////////////(((
+
+        ///////////Imagen de los dos personajes que te da a elegir en el modo seleccion
         JLabel JugadorEspanol = new JLabel(VentanaEleccion.setPlayer());
         JugadorEspanol.setLayout(null);
         JugadorEspanol.setBounds(100, 250, 300, 300);
@@ -102,8 +114,9 @@ public class Juego extends JFrame {
         JugadorAfricano.setLayout(null);
         JugadorAfricano.setBounds(100, 250, 300, 300);
         panel.add(JugadorAfricano);
+        ///////////////////////////////////////////////
 
-
+        /////////////////////ProgressBar que calcula "la fuerza con la que hace el tiro"
         JProgressBar progressbar = new JProgressBar(0, 100);
         progressbar.setOrientation(SwingConstants.HORIZONTAL);
         progressbar.setBounds(180, 225, 100, 50);
@@ -112,24 +125,22 @@ public class Juego extends JFrame {
         progressbar.setForeground(Color.BLACK);
         progressbar.setVisible(true);
         panel.add(progressbar);
+        ////////////////////////////////////////////////
 
+        ////////////////El boton salir que esta igualado a un ImagenIcon para tener una imagen de boton, también le pongo parametros para poder tener la imagen sin el fondo ni el borde de el boton.
         ImageIcon BotonSalir = new ImageIcon("salirfoto.png");
-
         JButton bot5 = new JButton(BotonSalir);
+        bot5.setFocusable(false);
         bot5.setFocusPainted(false);
         bot5.setBorderPainted(false);
         bot5.setContentAreaFilled(false);
         bot5.setBounds(5, 500, 100, 100);
         bot5.setVisible(true);
         panel.add(bot5);
-
-        /*
-        JLabel CambioPersonaje = new JLabel(VentanaEleccion.setCambio1());
-        CambioPersonaje.setLayout(null);
-        CambioPersonaje.setBounds(0,0,900,600);
-        panel.add(CambioPersonaje);*/
+        ///////////////////////////7
 
 
+        ///////Imagen de campos a elegir
         JLabel CampoStreet = new JLabel(VentanaEleccion.setMap());
         CampoStreet.setLayout(null);
         CampoStreet.setBounds(0, 0, 900, 600);
@@ -140,20 +151,14 @@ public class Juego extends JFrame {
         CampoPlayika.setLayout(null);
         CampoPlayika.setBounds(0, 0, 900, 600);
         panel.add(CampoPlayika);
+        ////////////////////////////////////////777
 
-
-        bot1.addActionListener(new ActionListener() {
+        bot5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
 
-
-
-                if (bot5.isSelected()) {
-                }
-
                 new VentanaEleccion();
                 dispose();
-
 
             }
         });
@@ -177,20 +182,24 @@ public class Juego extends JFrame {
             public void keyPressed(KeyEvent e) {
 
                 if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-                    contador++;
+
                     if (counter >= 100) {
                         counter = 0;
                     }
 
                     counter += 4;
-                    System.out.println(counter);
+
+
                 } else {
                     e.consume();
                 }
+
             }
 
             @Override
             public void keyReleased(KeyEvent keyEvent) {
+                contador++;
+
 
                 do {
 
@@ -200,53 +209,57 @@ public class Juego extends JFrame {
                         escritor.write(Integer.toString(puntos));
                         escritor.write("\n");
                         escritor.close();
-                        System.out.println("Entero guardado correctamente en el archivo.");
-                    } catch (IOException e) {
-                        System.out.println("Error al guardar el entero en el archivo: " + e.getMessage());
-                    }
-                    fondo9.setText(String.valueOf(puntos));
 
+                        fondo9.setText(String.valueOf(puntos));
+                    } catch (IOException e) {
+
+                    }
+
+
+                    if (contador == 30 ) {
+                        fondo7.setVisible(true);
+                    }if (puntos >= 20){
+                        puntos = -1;
+                        fondo4.setVisible(false);
+                        fondo6.setVisible(false);
+                        fondo8.setVisible(true);
+                        fondo10.setVisible(true);
+                    }
+                    if (contador > 20){
+                        dispose();
+                        new JuegoBasquet();
+                    }
                     if (counter == 16) {
                         puntos += 2;
-                        fondo9.setText(String.valueOf(puntos));
-                        //JugadorAfricano.setVisible(false);
-                        //fondo5.setVisible(true);
+                        fondo9.setText(String.valueOf(puntos));  //S
                         fondo4.setVisible(true);
                     } else if (counter == 28) {
                         puntos += 2;
                         fondo9.setText(String.valueOf(puntos));
-                        //JugadorAfricano.setVisible(false);
-                        //fondo5.setVisible(true);
+
                         fondo4.setVisible(true);
                     } else if (counter == 44) {
                         puntos += 2;
                         fondo9.setText(String.valueOf(puntos));
-                        //JugadorAfricano.setVisible(false);
-                        //fondo5.setVisible(true);
                         fondo4.setVisible(true);
                     } else if (counter == 60) {
                         puntos += 2;
                         fondo9.setText(String.valueOf(puntos));
-                        //JugadorAfricano.setVisible(false);
-                        //fondo5.setVisible(true);
                         fondo4.setVisible(true);
                     } else if (counter == 80) {
                         puntos += 3;
                         fondo9.setText(String.valueOf(puntos));
-                        //JugadorAfricano.setVisible(false);
-                        //fondo5.setVisible(true);
                         fondo6.setVisible(true);
                     } else if (counter == 96) {
                         puntos += 3;
                         fondo9.setText(String.valueOf(puntos));
-                        //JugadorAfricano.setVisible(false);
-                        //fondo5.setVisible(true);
                         fondo6.setVisible(true);
-                    }if (contador >= 20){
-                        fondo7.setVisible(true);
                     }
 
+
                 } while (puntos >= 20);
+
+
 
 
                 counter = 0;

@@ -9,9 +9,6 @@ import java.util.Scanner;
 
 public class JuegoBasquet extends JFrame {
 
-    Scanner teclado = new Scanner(System.in);
-    int num1;
-    private Image image;
     public JuegoBasquet() {
 
 
@@ -92,6 +89,7 @@ public class JuegoBasquet extends JFrame {
 
         bot2.addActionListener(new ActionListener() {
             @Override
+
             public void actionPerformed(ActionEvent actionEvent) {
 
 
